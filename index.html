@@ -177,7 +177,11 @@
                         </p>
 
                          <p align="justify">
-                         ASF combines local pseudo-continuum normalization with iterative
+                         ASF uses AutoSpecNorm (ASN) for local pseudo-continuum normalization.
+						 Each synthetic spectrum is normalized independently, allowing the pseudo-continuum 
+					     placement to adapt to abundance-dependent spectral variations and ensuring
+						self-consistent abundance measurements.
+						 ASF combines local pseudo-continuum normalization with iterative
                          line-by-line spectral synthesis fitting to derive robust elemental
                          abundances. The framework is optimized for cool dwarfs but can also
                          be applied to hotter FGK stars. Current applications include
@@ -227,7 +231,7 @@
                        <h3>GitHub Repository</h3>
 
              <p>
-                    Source code and documentation are available on GitHub
+                    Source code and documentation are available on GitHub:
                     <a href="https://github.com/nedahejazi/AutoSpecFit" target="_blank">
                     AutoSpecFit GitHub Repository
               </a>

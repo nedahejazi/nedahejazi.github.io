@@ -155,6 +155,147 @@
 								<b>Publications:</b> <a href="https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=database%3A%20astronomy&q=author%3A(%22hejazi%2C%20neda%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0">NASA ADS</a>,
 						          <a href="https://scholar.google.com/citations?user=BHhQxQUAAAAJ&hl=en&oi=ao">Google Scholar</a>
 							</p>
+
+						
+						 <article id="autospecfit">
+
+                         <h2 class="major">AutoSpecFit</h2>
+
+                         <p align="justify">
+                         <b>AutoSpecFit (ASF)</b> is an automated spectral synthesis framework
+                         developed to determine physical parameters and detailed chemical
+                         abundances of cool dwarfs using high-resolution spectroscopy.
+                         The code was designed to address the unique challenges of M-dwarf
+                         spectra, including dense molecular absorption, severe line blending,
+                         and difficulties in continuum placement.
+                        </p>
+
+                         <p align="justify">
+                         ASF combines local pseudo-continuum normalization with iterative
+                         line-by-line spectral synthesis fitting to derive robust elemental
+                         abundances. The framework is optimized for cool dwarfs but can also
+                         be applied to hotter FGK stars. Current applications include
+                         exoplanet host characterization, Galactic chemical evolution,
+                         chemical tagging, and investigations of star–planet chemical
+                         connections.
+                        </p>
+
+                        <h3>Scientific Motivation</h3>
+
+                        <p align="justify">
+                       Cool dwarfs are the most numerous stars in the Milky Way and are
+                       among the most important targets for exoplanet discovery and
+                       characterization. Accurate measurements of their physical
+                       parameters and chemical abundances provide crucial insight into
+                       stellar evolution, Galactic structure, and the composition and
+                       formation of planetary systems.
+                       </p>
+
+                       <h3>Key Features</h3>
+
+                     <ul>
+                       <li>Automated spectral synthesis fitting</li>
+                       <li>Line-by-line abundance determination</li>
+                       <li>Local pseudo-continuum normalization</li>
+                       <li>Iterative abundance refinement</li>
+                       <li>Multi-element chemical abundance analysis</li>
+                       <li>Uncertainty estimation from χ² analysis</li>
+                       <li>Support for high-resolution optical and near-infrared spectra</li>
+                       <li>Designed for M dwarfs and extendable to FGK dwarfs</li>
+                </ul>
+
+                <h3>Workflow</h3>
+
+                 <ol>
+                      <li>Read observed spectrum and spectral line list.</li>
+                      <li>Generate synthetic spectra using Turbospectrum.</li>
+                      <li>Perform local pseudo-continuum normalization.</li>
+                      <li>Measure line-by-line χ² values.</li>
+                      <li>Determine best-fit abundance for each line.</li>
+                      <li>Combine individual measurements into species abundances.</li>
+                      <li>Iteratively update abundances until convergence.</li>
+                      <li>Generate final abundances and diagnostic products.</li>
+                  </ol>
+
+                      <h3>Current Capabilities</h3>
+
+                      <p align="justify">
+                      ASF currently measures abundances of O, Mg, Al, Si, K, Ca, Ti,
+                      Cr, Mn, Fe, and additional species from high-resolution spectra.
+                      The framework has been applied to JWST planet-host stars,
+                      benchmark M dwarfs, and metal-poor M subdwarfs.
+           </p>
+
+                      <h3>Applications</h3>
+
+            <ul>
+                       <li>Exoplanet host-star characterization</li>
+                       <li>Galactic chemical evolution</li>
+                       <li>Chemical tagging</li>
+                       <li>Stellar population studies</li>
+                       <li>Star–planet composition comparisons</li>
+                       <li>M-dwarf benchmark calibration</li>
+            </ul>
+
+                       <h3>GitHub Repository</h3>
+
+             <p>
+                    Source code and documentation are available on GitHub:
+             </p>
+
+              <p>
+                    <a href="https://github.com/nedahejazi/AutoSpecFit" target="_blank">
+                    AutoSpecFit GitHub Repository
+              </a>
+              </p>
+
+                  <h3>Publications</h3>
+
+              <ul>
+              <li>
+                 Hejazi et al. (2024), ApJ, 973, 31<br>
+                 High-resolution elemental abundance measurements of cool
+                 JWST planet-host stars using AutoSpecFit.
+              </li>
+   
+           <li>
+                Hejazi et al. (2025), AJ, 170, 18<br>
+                Abundance measurements of the metal-poor M subdwarf
+                LHS 174 using high-resolution optical spectroscopy.
+           </li>
+
+            <li>
+                Additional AutoSpecFit developments and applications
+                are currently in preparation.
+            </li>
+         </ul>
+
+           <h3>Acknowledgements</h3>
+
+               <p align="justify">
+                AutoSpecFit has been developed through research conducted at
+                Georgia State University, the University of Kansas,
+                and the University of Tarapacá, with support from collaborators
+                working on cool-star spectroscopy, Galactic archaeology,
+                and exoplanet science.
+          </p>
+
+            <h3>Contact</h3>
+
+          <p>
+               <b>Neda Hejazi</b><br>
+               Postdoctoral Research Associate<br>
+               University of Tarapacá & CATA<br>
+               Chile
+              <br><br>
+                Email: nhejazi@gestion.uta.cl
+           </p>
+
+          <p>
+        <a href="index.html">← Return to Main Website</a>
+          </p>
+
+	
 						</article>
 
 						<!-- Here is the "Community" card. -->

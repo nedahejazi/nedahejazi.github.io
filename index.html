@@ -25,7 +25,30 @@
 			Any HTML contained inside <noscript></noscript> tags will be loaded in the event that JavaScript is not
 			available. 
 		-->
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>		
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>	
+
+       <style>
+			#header nav ul {
+				display: flex !important;
+				flex-wrap: wrap !important;
+				justify-content: center !important;
+				width: 100% !important;
+			}
+			#header nav ul li {
+				flex: 1 1 33.33% !important;
+				max-width: 33.33% !important;
+				width: 33.33% !important;
+				padding: 0 !important;
+			}
+			@media screen and (max-width: 736px) {
+				#header nav ul li {
+					flex: 1 1 50% !important;
+					max-width: 50% !important;
+					width: 50% !important;
+				}
+			}
+		</style>
+		
 	</head>
 	<!-- The body is the location where your site's content will go -->
 	<body class="is-preload">

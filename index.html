@@ -186,92 +186,322 @@
                          
 
 
-							 
-                         <p align="justify">
-                         <b>AutoSpecFit (ASF)</b> is an automated spectral model-fitting framework
-                         developed to measure the detailed chemical
-                         abundances of cool dwarfs using high-resolution spectroscopy.
-                         The code was designed to address the unique challenges of cool-dwarf
-                         spectra, including dense molecular absorption, severe line blending,
-                         and difficulties in continuum placement.
-                         ASF uses <b>AutoSpecNorm (ASN)</b> for local pseudo-continuum normalization.
-						 The observed spectrum is locally pseudo-continuum normalized separately with respect
-						 to each synthetic spectrum evaluated during the chi-square fitting procedure, allowing 
-					     the pseudo-continuum placement to adapt to abundance-dependent spectral variations and ensuring
-					     self-consistent abundance measurements.
-						 ASF combines local pseudo-continuum normalization with iterative
-                         line-by-line spectral synthesis fitting to derive robust elemental
-                         abundances. The framework is optimized for cool dwarfs but can also
-                         be applied to hotter FGK stars. Current applications include
-                         exoplanet host characterization, Galactic chemical evolution,
-                         chemical tagging, and investigations of star–planet chemical
-                         connections.
-                        </p>
+	<p align="justify">
+    <b>AutoSpecFit (ASF)</b> is an automated line-by-line spectral synthesis
+    framework developed for high-resolution chemical abundance measurements
+    of cool stars. ASF derives elemental abundances through line-by-line
+    chi-square minimization by comparing observed spectra with synthetic
+    spectra generated using Turbospectrum.
 
-                        <h3>Scientific Motivation</h3>
+    ASF was designed to address the unique challenges of cool-star spectra,
+    including dense molecular absorption, severe line blending, and
+    difficulties in continuum placement.
 
-                        <p align="justify">
-                       Cool dwarfs are the most numerous stars in the Milky Way and are
-                       among the most important targets for exoplanet discovery and
-                       characterization. Accurate measurements of their physical
-                       parameters and chemical abundances thus provide crucial insight into
-                       Galactic structure and evolution as well as  the composition and
-                       formation of planetary systems.
-                       </p>
+    A central component of ASF is <b>AutoSpecNorm (ASN)</b>, which performs
+    local pseudo-continuum normalization. The observed spectrum is locally
+    pseudo-continuum normalized independently with respect to each synthetic
+    spectrum evaluated during the chi-square fitting procedure. This allows
+    the pseudo-continuum placement to adapt to abundance-dependent spectral
+    variations and ensures a self-consistent comparison between the observed
+    and synthetic spectra.
 
-                       <h3>Key Features</h3>
+    ASF combines local pseudo-continuum normalization with iterative
+    line-by-line spectral synthesis fitting to derive detailed elemental
+    abundances. The latest version, ASF v2.0, additionally allows stellar
+    atmospheric parameters to be iteratively refined together with the
+    elemental abundances.
 
-                     <ul>
-                       <li>Automated spectral synthesis fitting</li>
-                       <li>Line-by-line abundance determination</li>
-                       <li>Local pseudo-continuum normalization</li>
-                       <li>Iterative abundance refinement</li>
-                       <li>Multi-element chemical abundance analysis</li>
-                       <li>Support for high-resolution optical and near-infrared spectra</li>
-                       <li>Designed for M dwarfs and extendable to FGK dwarfs</li>
-                </ul>
+    The framework is optimized for cool dwarfs and high-resolution optical
+    and near-infrared spectroscopy. Current applications include exoplanet-host
+    characterization, Galactic chemical evolution, stellar-population studies,
+    chemical tagging, and investigations of star&ndash;planet chemical
+    connections.
+</p>
 
-                <h3>Workflow</h3>
 
-                 <ol>
-                      <li>Read observed spectrum and spectral line list.</li>
-                      <li>Generate synthetic spectra using Turbospectrum.</li>
-                      <li>Perform local pseudo-continuum normalization.</li>
-                      <li>Measure line-by-line χ² values.</li>
-                      <li>Determine best-fit abundance for each line.</li>
-                      <li>Combine individual measurements into species abundances.</li>
-                      <li>Iteratively update abundances until convergence.</li>
-                      <li>Generate final abundances and diagnostic products.</li>
-                  </ol>
+<!-- ========================================================= -->
+<!-- ASF / ASN WORKFLOW FIGURE                                  -->
+<!-- ========================================================= -->
 
-                     
-          
-                       <h3>GitHub Repository</h3>
+<div style="text-align:center; margin:30px 0;">
+    <img src="docs/ASF_ASN_Workflows.png"
+         alt="AutoSpecFit and AutoSpecNorm Workflows"
+         style="max-width:100%; height:auto; display:block; margin:0 auto;">
+</div>
 
-             <p>
-                    Source code and documentation are available on GitHub:
-                    <a href="https://github.com/nedahejazi/AutoSpecFit" target="_blank">
-                    AutoSpecFit GitHub Repository
-              </a>
-              </p>
 
-                  <h3>Publications</h3>
+<h3>Scientific Motivation</h3>
 
-              <ul>
-              <li>
-                 Hejazi et al. (2024), ApJ, 973, 31<br>
-              </li>
-   
-           <li>
-                Hejazi et al. (2025), AJ, 170, 18<br>
-           </li>
+<p align="justify">
+    Cool dwarfs are the most numerous stars in the Milky Way and are among
+    the most important targets for exoplanet discovery and characterization.
+    Accurate measurements of their atmospheric parameters and detailed
+    chemical abundances provide important constraints on Galactic chemical
+    evolution and structure, stellar populations, and the composition and
+    formation of planetary systems.
+</p>
 
-            <li>
-                Additional AutoSpecFit developments and applications
-                are currently in preparation.
-            </li>
-         </ul>
 
+<h3>ASF Versions</h3>
+
+<p align="justify">
+    ASF currently includes two main analysis scripts.
+    <b>ASF v1.0</b> performs iterative elemental-abundance measurements
+    using user-supplied, fixed stellar atmospheric parameters.
+    <b>ASF v2.0</b> extends the framework by alternating elemental-abundance
+    determination with stellar-parameter refinement, allowing effective
+    temperature (<i>T</i><sub>eff</sub>), surface gravity
+    (log <i>g</i>), overall metallicity ([M/H]), microturbulent velocity
+    (<i>v</i><sub>mic</sub>), and alpha enhancement ([&alpha;/Fe]) to be
+    refined toward a self-consistent solution.
+</p>
+
+
+<h3>Key Features</h3>
+
+<ul>
+    <li>Automated line-by-line elemental abundance determination</li>
+
+    <li>
+        Local pseudo-continuum normalization of the observed spectrum using
+        AutoSpecNorm (ASN)
+    </li>
+
+    <li>
+        Independent local normalization of the observed spectrum with respect
+        to each synthetic spectrum evaluated during the fitting process
+    </li>
+
+    <li>
+        Abundance-dependent pseudo-continuum placement for self-consistent
+        abundance measurements
+    </li>
+
+    <li>Iterative refinement of elemental abundances</li>
+
+    <li>Iterative stellar-parameter refinement in ASF v2.0</li>
+
+    <li>
+        Sequential one-parameter-at-a-time fitting to reduce atmospheric
+        parameter degeneracies
+    </li>
+
+    <li>
+        Two-pass stellar-parameter determination: a broad Pass 1 followed
+        by local Pass 2 refinement
+    </li>
+
+    <li>
+        Line-by-line chi-square minimization and uncertainty estimation
+    </li>
+
+    <li>
+        Propagation of atmospheric-parameter uncertainties into systematic
+        elemental-abundance uncertainties
+    </li>
+
+    <li>
+        Restart and checkpoint support for long abundance and
+        parameter-fitting runs
+    </li>
+
+    <li>
+        Support for high-resolution optical and near-infrared spectra
+    </li>
+
+    <li>
+        Designed primarily for detailed chemical analysis of cool stars
+    </li>
+
+    <li>
+        Compatible with Turbospectrum spectral synthesis
+    </li>
+</ul>
+
+
+<h3>AutoSpecNorm (ASN)</h3>
+
+<p align="justify">
+    <b>AutoSpecNorm (ASN)</b> is the local pseudo-continuum normalization
+    framework integrated into ASF. Unlike conventional approaches in which
+    a single normalized observed spectrum is compared with all synthetic
+    spectra, ASN performs an independent local normalization of the observed
+    spectrum for every synthetic spectrum evaluated during the chi-square
+    fitting procedure.
+
+    This allows the local pseudo-continuum placement to adapt to changes in
+    the synthetic spectrum as the elemental abundances or atmospheric
+    parameters vary. The procedure is particularly important for cool-star
+    spectra, where numerous blended atomic and molecular absorption features
+    strongly affect the apparent continuum.
+</p>
+
+
+<h3>Abundance-Fitting Workflow</h3>
+
+<ol>
+    <li>
+        Read the observed stellar spectrum and species-specific spectral
+        line-list files.
+    </li>
+
+    <li>
+        Generate the elemental-abundance grids and required synthetic spectra
+        using Turbospectrum.
+    </li>
+
+    <li>
+        Perform independent local pseudo-continuum normalization with ASN
+        for every synthetic spectrum.
+    </li>
+
+    <li>
+        Compute line-by-line chi-square abundance curves.
+    </li>
+
+    <li>
+        Determine individual-line abundances and uncertainties.
+    </li>
+
+    <li>
+        Combine accepted individual spectral lines into species-level
+        abundances.
+    </li>
+
+    <li>
+        Update the elemental abundances and repeat the abundance fitting
+        until convergence.
+    </li>
+
+    <li>
+        Determine the final elemental abundances and uncertainties.
+    </li>
+</ol>
+
+
+<h3>Stellar-Parameter Refinement in ASF v2.0</h3>
+
+<p align="justify">
+    ASF v2.0 extends the abundance-fitting workflow by refining the stellar
+    atmospheric parameters between abundance iterations. For the current
+    cool-dwarf implementation, parameter refinement is performed sequentially,
+    with only one parameter varied at a time. This approach helps reduce
+    degeneracies between the spectral responses to different atmospheric
+    parameters.
+</p>
+
+<p align="justify">
+    Microturbulent velocity (<i>v</i><sub>mic</sub>) is fitted first and
+    alpha enhancement ([&alpha;/Fe]) is fitted last. The ordering of
+    [M/H], log <i>g</i>, and <i>T</i><sub>eff</sub> is target dependent
+    and is determined according to the availability, strength, and
+    distinctiveness of parameter-specific diagnostic spectral lines.
+</p>
+
+<p align="justify">
+    In general, parameters with stronger and more distinctive diagnostic
+    lines are fitted earlier in the sequence, allowing the better-constrained
+    parameters to be established before parameters with less distinctive
+    or more degenerate spectral responses. If suitable diagnostic lines
+    cannot be identified for one of these parameters, that parameter is
+    placed last among [M/H], log <i>g</i>, and
+    <i>T</i><sub>eff</sub> and is fitted using the full set of selected
+    spectral lines.
+</p>
+
+
+<p align="center">
+    <b>
+        <i>v</i><sub>mic</sub>
+        &rarr;
+        [M/H], log <i>g</i>, <i>T</i><sub>eff</sub>
+        (target-dependent order)
+        &rarr;
+        [&alpha;/Fe]
+    </b>
+</p>
+
+
+<h3>Two-Pass Parameter Determination</h3>
+
+<p align="justify">
+    Stellar-parameter determination in ASF v2.0 is performed in two passes.
+    <b>Pass 1</b> searches the original parameter grids and uses
+    parameter-specific diagnostic lines when suitable diagnostics have been
+    identified. The ordering of [M/H], log <i>g</i>, and
+    <i>T</i><sub>eff</sub> follows the relative strength and
+    distinctiveness of their diagnostic lines for the target being analyzed.
+</p>
+
+<p align="justify">
+    <b>Pass 2</b> repeats the adopted parameter sequence using local
+    five-point grids centered on the Pass-1 solutions. Every Pass-2 trial
+    value is an existing point from the corresponding Pass-1/original grid.
+    Pass 2 therefore never extends beyond the original parameter grid. The
+    local window shifts inward when the Pass-1 solution lies near a grid
+    boundary.
+</p>
+
+<p align="justify">
+    Atmospheric-parameter and abundance iterations alternate until the
+    adopted convergence conditions are satisfied. Once the final stellar
+    parameters are accepted, ASF performs a dedicated final abundance
+    determination and propagates the atmospheric-parameter uncertainties
+    into the elemental-abundance error budget.
+</p>
+
+
+<h3>Scientific Applications</h3>
+
+<p align="justify">
+    AutoSpecFit has been developed for detailed chemical characterization
+    of cool stars and is being applied to a range of astrophysical problems.
+    Current applications include exoplanet-host characterization, Galactic
+    chemical evolution and structure, stellar-population studies, chemical
+    tagging, and investigations of star&ndash;planet chemical connections.
+</p>
+
+
+<h3>GitHub Repository</h3>
+
+<p align="justify">
+    Source code, examples, and documentation are available on GitHub:
+    <a href="https://github.com/nedahejazi/AutoSpecFit"
+       target="_blank"
+       rel="noopener noreferrer">
+        AutoSpecFit GitHub Repository
+    </a>
+</p>
+
+
+<h3>Publications</h3>
+
+<ul>
+
+    <li>
+        Hejazi et al. (2024), <i>ApJ</i>, 973, 31<br>
+        <a href="https://doi.org/10.3847/1538-4357/ad61dc"
+           target="_blank"
+           rel="noopener noreferrer">
+            DOI: 10.3847/1538-4357/ad61dc
+        </a>
+    </li>
+
+    <li>
+        Hejazi et al. (2025), <i>AJ</i>, 170, 18<br>
+        <a href="https://doi.org/10.3847/1538-3881/add696"
+           target="_blank"
+           rel="noopener noreferrer">
+            DOI: 10.3847/1538-3881/add696
+        </a>
+    </li>
+
+    <li>
+        Additional AutoSpecFit developments and applications are currently
+        in preparation.
+    </li>
+
+</ul>
        
          
 
